@@ -1,15 +1,7 @@
-<header class="main-header">
-  <h1 class="main-title">Currency Converter</h1>
-</header>
+
 <br />
 <form method="post" id="convert-form" action="<%= conversions_convert_path %>">
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h6>From</h6>
-    </div>
-  </div>
-  <br />
   <div class="row">
     <div class="col-12 col-sm-6">
       <div class="input-group">
@@ -37,7 +29,7 @@
       </select>
     </div>
     <div class="col-12">
-      <input type="submit" id="convert-button" name="submit" value="Convert" />
+      <button type="submit" id="convert-button" name="submit" value="convert" class="btn btn-outline-secondary">Convert</button>
     </div>
   </div>
 </div>
@@ -50,7 +42,7 @@
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
       }
     })
-      $('#convert-form').find('input[type="submit"]').on('click', function (e) {
+      $('#convert-form').find('button[type="submit"]').on('click', function (e) {
         e.preventDefault();
         var data = {
           payload: {

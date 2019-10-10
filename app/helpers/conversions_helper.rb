@@ -7785,6 +7785,7 @@ module ConversionsHelper
 		      ]
 		    },
 		    {
+		    	"selected": "1",
 		      "code": "USD",
 		      "name": "US Dollar",
 		      "statuses": [

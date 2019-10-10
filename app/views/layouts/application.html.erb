@@ -22,9 +22,22 @@
   </head>
 
   <body>
-
-
-    <%= yield %>
-    
+    <div class="header">
+      <h1 class="main-title">Currency Converter</h1>
+    </div>
+    <div class="body">
+      <%= yield %>
+    </div>
+    <br />
+    <div class="footer">
+      <div class="container">
+        <div class="col-12" id="footer-text">
+          Always up to date conversion rates.
+        </div>
+        <div class="col-12" id="footer-text">
+          Currency rates provided by Cryptonator - <a href="https://www.cryptonator.com/api/">Get API</a>
+        </div> 
+      </div>
+    </div>
   </body>
 </html>
