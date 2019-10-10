@@ -29,7 +29,7 @@
       </select>
     </div>
     <div class="col-12">
-      <button type="submit" id="convert-button" name="submit" value="convert" class="btn btn-outline-secondary">Convert</button>
+      <button type="submit" id="convert-button" name="submit" value="convert" class="btn btn-info">Convert</button>
     </div>
   </div>
 </div>
@@ -51,7 +51,6 @@
             amount: $('input[name="amount"]').val()
           }
         };
-        console.log(data);
         $.post('<%= conversions_convert_path %>',data, function (resp) {
             $('#result').html(resp.amount + ' ' + resp.to_ticker)
         });
