@@ -1,11 +1,39 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+.main-header {
+  background-image: linear-gradient(180deg, #bcdbe8 0%, #e6c57a 51%, #e6af6e 75%);
+  position: relative;
+  height: auto;
+  transform: translateZ(0);
+  top: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 .main-title {
-  text-align: center;
+  text-align: left;
+  margin-left: 20px;
   padding-top: 20px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .custom-select {
   color: #f8f9fa;
   background-color: #6c757d;
 }
+
+
+#convert-button {
+  margin-top: 5px;
+}
+
+#all-fields{
+  margin: 0 auto;
+}
+
+#inputGroupSelect04 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+

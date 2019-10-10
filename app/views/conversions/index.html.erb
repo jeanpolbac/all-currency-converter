@@ -1,0 +1,69 @@
+<header class="main-header">
+  <h1 class="main-title">Currency Converter</h1>
+</header>
+<br />
+<form method="post" id="convert-form" action="<%= conversions_convert_path %>">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h6>From</h6>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="input-group">
+        <input name="amount" type="text" id="all-fields" class="form-control" placeholder="Enter Currency Amount" aria-label="Text input with dropdown button">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <select class="custom-select" id="all-fields" aria-label="Example select with button addon" name="from_ticker">
+        <% currencies[:rows].each do |conv| %>
+            <option value="<%= conv[:code] %>"><%= conv[:name] %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="col-12">
+      <img src="/images/convert-arrows.png" class="mx-auto d-block" />
+    </div>
+    <div class="col-12 col-sm-6">
+      <input class="form-control" id="result" type="text" placeholder="Converted Total" readonly>
+    </div>
+    <div class="col-12 col-sm-6">
+      <select class="custom-select" id="all-fields" aria-label="Example select with button addon" name="to_ticker">
+        <% currencies[:rows].each do |conv| %>
+            <option value="<%= conv[:code] %>"><%= conv[:name] %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="col-12">
+      <input type="submit" id="convert-button" name="submit" value="Convert" />
+    </div>
+  </div>
+</div>
+</form>
+<script type="text/javascript">
+
+  $(function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
+      }
+    })
+      $('#convert-form').find('input[type="submit"]').on('click', function (e) {
+        e.preventDefault();
+        var data = {
+          payload: {
+            from_ticker: $('select[name="from_ticker"]').val(),
+            to_ticker: $('select[name="to_ticker"]').val(),
+            amount: $('input[name="amount"]').val()
+          }
+        };
+        console.log(data);
+        $.post('<%= conversions_convert_path %>',data, function (resp) {
+            $('#result').html(resp.amount + ' ' + resp.to_ticker)
+        });
+      });
+  });
+
+</script>
