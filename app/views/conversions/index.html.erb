@@ -39,7 +39,7 @@
       headers: {
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
       }
-    })
+    });
       $('#convert-form').find('button[type="submit"]').on('click', function (e) {
         e.preventDefault();
         var data = {
@@ -50,7 +50,7 @@
           }
         };
         $.post('<%= conversions_convert_path %>',data, function (resp) {
-            $('#result').val(resp.amount + ' ' + resp.to_ticker)
+            $('#result').val(resp.amount + ' ' + resp.to_ticker);
         });
       });
   });
