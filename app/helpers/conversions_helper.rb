@@ -147,14 +147,6 @@ module ConversionsHelper
 			"primary",
 			"secondary"
 		      ]
-		    },
-		    {
-		    	"code": "CHF",
-		    	"name": "Swiss Franc",
-		    	"statuses": [
-		    "primary",
-		  	"secondary"
-		  		]
 		    }
 		  ]
 		}

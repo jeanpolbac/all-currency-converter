@@ -1,9 +1,7 @@
-
-<br />
 <form method="post" id="convert-form" action="<%= conversions_convert_path %>">
 <div class="container">
   <div class="row">
-    <div class="col-12 col-sm-6">
+    <div class="col-12 col-sm-6" id="enter-amount-cell">
       <div class="input-group">
         <input name="amount" type="text" id="all-fields" class="form-control" placeholder="Enter Currency Amount" aria-label="Text input with dropdown button">
       </div>
@@ -52,7 +50,7 @@
           }
         };
         $.post('<%= conversions_convert_path %>',data, function (resp) {
-            $('#result').html(resp.amount + ' ' + resp.to_ticker)
+            $('#result').val(resp.amount + ' ' + resp.to_ticker)
         });
       });
   });
